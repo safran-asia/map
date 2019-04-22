@@ -1010,4 +1010,36 @@ button:focus {
 		padding-right: 4em;
 		text-align: left;
 	}
+	.boxbutton {
+	font-size: 2em;
+	display: block;
+	width: 1em;
+	height: 1em;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	border: 0;
+	background: #d7d7dc;
+}
+
+.boxbutton--dark {
+	background: #c4c4c7;
+}
+
+.boxbutton--darker {
+	background: #2c2c2f;
+}
+
+.boxbutton--alt {
+	background: #3d1975;
+}
+
+.boxbutton--disabled,
+.boxbutton--disabled:focus,
+.boxbutton--disabled:hover {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0.2;
+}
+
 }
