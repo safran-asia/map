@@ -552,7 +552,7 @@ button:focus {
 }
 
 .content__item[data-category='4'] .content__item-title {
-	color: #8d65e0;
+	color: #fb4f14;
 }
 
 .content__item--hover .content__item-title {
@@ -700,10 +700,12 @@ button:focus {
 .grouped-by-category :not([data-category='2']) + [data-category='2'],
 .grouped-by-category [data-category='3']:first-child,
 .grouped-by-category :not([data-category='3']) + [data-category='3'],
+
 .grouped-by-category [data-category='4']:first-child,
 .grouped-by-category :not([data-category='4']) + [data-category='4'] {
 	margin-top: 4em;
 }
+
 
 .grouped-by-category [data-category='1']:first-child::before,
 .grouped-by-category :not([data-category='1']) + [data-category='1']::before,
@@ -711,6 +713,7 @@ button:focus {
 .grouped-by-category :not([data-category='2']) + [data-category='2']::before,
 .grouped-by-category [data-category='3']:first-child::before,
 .grouped-by-category :not([data-category='3']) + [data-category='3']::before,
+
 .grouped-by-category [data-category='4']:first-child::before,
 .grouped-by-category :not([data-category='4']) + [data-category='4']::before {
 	font-size: 1.25em;
@@ -728,7 +731,7 @@ button:focus {
 
 .grouped-by-category [data-category='2']:first-child::before,
 .grouped-by-category :not([data-category='2']) + [data-category='2']::before {
-	content: 'Top Managment & CI';
+	content: 'Managment';
 	color: #6584c7;
 }
 
@@ -740,8 +743,8 @@ button:focus {
 
 .grouped-by-category [data-category='4']:first-child::before,
 .grouped-by-category :not([data-category='4']) + [data-category='4']::before {
-	content: 'Support';
-	color: #8d65e0;
+	content: 'Facilities';
+	color: #fb4f14;
 }
 
 .list__item::after {
@@ -902,7 +905,7 @@ button:focus {
 	fill: #dc4b7c;
 }
 .pin[data-category='4'] .icon--pin {
-	fill: #8d65e0;
+	fill: #fb4f14;
 }
 
 .pin--active .icon--pin {
