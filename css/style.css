@@ -744,7 +744,7 @@ button:focus {
 .grouped-by-category [data-category='4']:first-child::before,
 .grouped-by-category :not([data-category='4']) + [data-category='4']::before {
 	content: 'Facilities';
-	color: #fb4f13;
+	color: #fb4f14;
 }
 
 .list__item::after {
