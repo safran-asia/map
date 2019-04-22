@@ -981,18 +981,7 @@ button:focus {
 		left: auto;
 	}
 	
-.codrops-header {
-	position: absolute;
-	z-index: 100;
-	top: 0;
-	left: 0;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: center;
-	align-items: left;
-	padding: 1em 1em;
-	text-align: left;
-}
+
 	.spaces-list--open,
 	.spaces-list--open .search {
 		right: 0;
@@ -1018,7 +1007,7 @@ button:focus {
 		overflow: auto;
 	}
 	.codrops-header {
-		padding-right: 4em;
+		padding-right: 1em;
 		text-align: left;
 	}
 	.boxbutton {
