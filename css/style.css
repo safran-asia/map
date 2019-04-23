@@ -88,6 +88,7 @@ button:focus {
 	align-items: center;
 	padding: 1.5em 1em;
 	text-align: center;
+	font-size: 1.17em;
 }
 
 .codrops-header h1 {
@@ -1006,7 +1007,9 @@ button:focus {
 	.content__item {
 		overflow: auto;
 	}
+
 	.codrops-header {
+		font-size: 1em;
 		padding-right: 1em;
 		text-align: left;
 	}
