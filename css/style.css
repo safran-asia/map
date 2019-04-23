@@ -737,7 +737,7 @@ button:focus {
 
 .grouped-by-category [data-category='3']:first-child::before,
 .grouped-by-category :not([data-category='3']) + [data-category='3']::before {
-	content: 'Sales & Admin and Supply Chain';
+	content: 'Conference & Show Room';
 	color: #dc4b7c;
 }
 
