@@ -64,8 +64,8 @@
 		//show visitor path
 		visit = document.querySelector('.visitor-path'),
 		visit2 = document.querySelector('.visitor2-path'),
-		count=0,
-		count2=0,
+		exit = document.querySelector('.exit-path'),
+
 		//
 		// show all mall´s levels ctrl
 		allLevelsCtrl = mallNav.querySelector('.mallnav__button--all-levels'),
@@ -73,6 +73,7 @@
 		levelUpCtrl = mallNav.querySelector('.mallnav__button--up'),
 		levelDownCtrl = mallNav.querySelector('.mallnav__button--down'),
 		levelVisitor = mallNav.querySelector('.mallnav__button--visitor'),
+		levelExit = mallNav.querySelector('.mallnav__button--exit'),
 		// pins
 		pins = [].slice.call(mallLevelsEl.querySelectorAll('.pin')),
 		// content element
@@ -133,6 +134,7 @@
 		levelUpCtrl.addEventListener('click', function() { navigate('Down'); });
 		levelDownCtrl.addEventListener('click', function() { navigate('Up'); });
 		levelVisitor.addEventListener('click', function() { displayVisitor(); });
+		levelExit.addEventListener('click', function() { displayExit(); });
 		// sort by name ctrl - add/remove category name (css pseudo element) from list and sorts the spaces by name 
 		sortByNameCtrl.addEventListener('click', function() {
 			if( this.checked ) {
@@ -253,6 +255,11 @@
 		classie.remove(mallLevelsEl, 'levels--selected-' + selectedLevel);
 		classie.remove(mallLevelsEl, 'levels--open');
 
+		//hide visit path
+		classie.add(visit, 'visitor--hidden');  //clear visitor pat in case of it was on
+		classie.add(visit2, 'visitor2--hidden');
+		isVisited=false;
+		isVisited2=false;
 		// hide level pins
 		removePins();
 
@@ -279,32 +286,62 @@
 			return item.values().level === selectedLevel.toString(); 
 		});
 	}
+	var isVisited=false;//for lvl 1 to know if the visitor path is hideen or not
+	var isVisited2=false;//for lvl 2 to know if the visitor path is hideen or not (tried with only one, but quicker with one for each floor)
+	
 	function displayVisitor(){
 		if(selectedLevel==2){
-			if(count==0){
+			if(isVisited==false){
 				classie.remove(visit, 'visitor--hidden');
-				count=1;
+				isVisited=true;
 						}
 			else{
 				classie.add(visit, 'visitor--hidden');
-				count=0;
+				isVisited=false;
 			}
 		}
 		if(selectedLevel==1){
-			if(count2==0){
+			if(isVisited2==false){
 				classie.remove(visit2, 'visitor2--hidden');
-				count2=1;
+				isVisited2=true;
 						}
 			else{
 				classie.add(visit2, 'visitor2--hidden');
-				count2=0;
+				isVisited2=false;
 			}
-
 		}
-
-		
-		
-
+	}
+	var removed=false;
+	var isExit=false;
+	function displayExit(){
+		if(removed==false){
+			removePins();
+			classie.add(visit, 'visitor--hidden');  //clear visitor pat in case of it was on
+			classie.add(visit2, 'visitor2--hidden');
+			isVisited=false;
+			isVisited2=false;
+			removed=true;
+			if(isExit==false){
+				classie.remove(exit, 'exit--hidden');
+				isExit=true;
+						}
+			else{
+				classie.add(exit, 'exit--hidden');
+				isExit=false;
+			}
+		}
+		else{
+			showPins();
+			removed=false;
+			if(isExit==false){
+				classie.remove(exit, 'exit--hidden');
+				isExit=true;
+						}
+			else{
+				classie.add(exit, 'exit--hidden');
+				isExit=false;
+			}
+		}
 	}
 	/**
 	 * Shows the level´s pins
@@ -381,6 +418,8 @@
 
 		// control navigation controls state (enabled/disabled)
 		setNavigationState();
+		// hide the previous level´s pins
+		removePins(currentLevel);
 		// transition direction class
 		classie.add(currentLevel, 'level--moveOut' + direction);
 		// next level element
@@ -408,6 +447,10 @@
 
 		// hide the previous level´s pins
 		removePins(currentLevel);
+		classie.add(visit, 'visitor--hidden');  //clear visitor pat in case of it was on
+		classie.add(visit2, 'visitor2--hidden');
+		isVisited=false;
+		isVisited2=false;
 	}
 
 	/**
