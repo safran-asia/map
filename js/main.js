@@ -64,8 +64,8 @@
 		//show visitor path
 		visit = document.querySelector('.visitor-path'),
 		visit2 = document.querySelector('.visitor2-path'),
-		exit = document.querySelector('.exit-path'),
-
+		exit2 = document.querySelector('.exit-path'),//lvl2
+		exit1 = document.querySelector('.exit1-path'),//lvl1
 		//
 		// show all mall´s levels ctrl
 		allLevelsCtrl = mallNav.querySelector('.mallnav__button--all-levels'),
@@ -260,6 +260,10 @@
 		classie.add(visit2, 'visitor2--hidden');
 		isVisited=false;
 		isVisited2=false;
+		classie.add(exit1, 'exit1--hidden');
+		isExit=false;
+	    classie.add(exit2, 'exit--hidden');
+		isExit2=false;
 		// hide level pins
 		removePins();
 
@@ -313,6 +317,7 @@
 	}
 	var removed=false;
 	var isExit=false;
+	var isExit2=false;
 	function displayExit(){
 		if(removed==false){
 			removePins();
@@ -321,28 +326,57 @@
 			isVisited=false;
 			isVisited2=false;
 			removed=true;
-			if(isExit==false){
-				classie.remove(exit, 'exit--hidden');
-				isExit=true;
-						}
-			else{
-				classie.add(exit, 'exit--hidden');
-				isExit=false;
+			if(selectedLevel==1){
+				if(isExit==false){
+					classie.remove(exit1, 'exit1--hidden');
+					isExit=true;
+							}
+				else{
+					classie.add(exit1, 'exit1--hidden');
+					isExit=false;
+				}
+			}
+			if(selectedLevel==2){
+				if(isExit2==false){
+					classie.remove(exit2, 'exit--hidden');
+					isExit2=true;
+				}
+				else{
+					classie.add(exit2, 'exit--hidden');
+					isExit2=false;
+				}
+
 			}
 		}
 		else{
 			showPins();
 			removed=false;
-			if(isExit==false){
-				classie.remove(exit, 'exit--hidden');
-				isExit=true;
-						}
-			else{
-				classie.add(exit, 'exit--hidden');
-				isExit=false;
+			if(selectedLevel==1){
+				if(isExit==false){
+					classie.remove(exit1, 'exit1--hidden');
+					isExit=true;
+							}
+				else{
+					classie.add(exit1, 'exit1--hidden');
+					isExit=false;
+				}
+			}
+			if(selectedLevel==2){
+				if(isExit2==false){
+					classie.remove(exit2, 'exit--hidden');
+					isExit2=true;
+				}
+				else{
+					classie.add(exit2, 'exit--hidden');
+					isExit2=false;
+				}
+
 			}
 		}
+		
 	}
+	
+	
 	/**
 	 * Shows the level´s pins
 	 */
@@ -451,6 +485,10 @@
 		classie.add(visit2, 'visitor2--hidden');
 		isVisited=false;
 		isVisited2=false;
+		classie.add(exit1, 'exit1--hidden');
+		isExit=false;
+	    classie.add(exit2, 'exit--hidden');
+		isExit2=false;
 	}
 
 	/**
